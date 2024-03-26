@@ -21,3 +21,5 @@ print(dictionary.keys())
 
 # get all values
 print(dictionary.values())
+
+print(sum({1:'hi', 2:'242'}))

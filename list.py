@@ -27,3 +27,6 @@ def keep_odd_efficiently(number_list):
     # a very pythonic way of writing a return statement
     # Also, it is much more efficient
 
+
+list = [1, "g"]
+print(list)
