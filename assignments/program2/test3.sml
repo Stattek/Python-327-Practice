@@ -1,7 +1,9 @@
 fun find_subset num [] = []
 |   find_subset num (head::tail) = 
     let        
-        val add = if (num - head) > 0 then head::(find_subset (num - head) tail) else (find_subset num tail)
+        val add = 
+            if (num - head) > 0 then head::(find_subset (num - head) tail) 
+            else (find_subset num tail)
         val dont_add = find_subset num tail
     in
         (* Return the value that we find*)
@@ -14,3 +16,4 @@ fun find_subset num [] = []
     end;
 
 find_subset 10 [4,3,2,12,5];
+find_subset 10 [4,3,2,12,5,6];

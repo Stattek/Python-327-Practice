@@ -57,11 +57,11 @@ fun find_subset num [] = []
 |   find_subset 0 _ = []
 |   find_subset num (head::tail) = 
     let
-        val add_num = find_subset num (head::tail)
+        val add_num = head::find_subset num (head::tail)
         val dont_add_num = find_subset num tail
     in
-        if not (add_num = []) then add_num
-        else if not (dont_add_num = []) then dont_add_num
-        else if (num - head) >= 0 then head::(find_subset (num - head) tail)
+        if (foldl (op +) 0 add_num) = num then add_num
+        else if (foldl (op +) 0 dont_add_num) = num then dont_add_num
+        else if (num - head) >= 0 then 
         else find_subset num tail
     end;
