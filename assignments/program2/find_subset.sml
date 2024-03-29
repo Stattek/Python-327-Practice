@@ -51,3 +51,17 @@ helper_find_subset 10 [4,3,2,12,5] [];
 (foldl (op +) 0 [4,3,2]) + 5 < 10;
     [4,3,2];
 (foldl (op +) 0 [4,3,2]) + 6 = 10;
+
+
+fun find_subset num [] = []
+|   find_subset 0 _ = []
+|   find_subset num (head::tail) = 
+    let
+        val add_num = find_subset num (head::tail)
+        val dont_add_num = find_subset num tail
+    in
+        if not (add_num = []) then add_num
+        else if not (dont_add_num = []) then dont_add_num
+        else if (num - head) >= 0 then head::(find_subset (num - head) tail)
+        else find_subset num tail
+    end;
