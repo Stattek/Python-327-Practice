@@ -6,7 +6,7 @@ By David Slay and Jake Ozer
 
 (*
 Takes a num and a list and returns a count of the number of multiples of the 
-first parameter
+first parameter.
 *)
 fun count_multiples(num, []) = 0
 |   count_multiples(num, head::tail) =
